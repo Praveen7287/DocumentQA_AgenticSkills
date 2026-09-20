@@ -26,12 +26,12 @@ def main():
     args = parser.parse_args()
     
     # Initialize agent
-    console.print("[bold blue]🤖 Initializing Document Q&A Agent...[/bold blue]")
+    console.print("[bold blue] Initializing Document Q&A Agent...[/bold blue]")
     agent = DocumentQAAgent(skills_dir=args.skill_dir)
     
     # List skills if requested
     if args.list_skills:
-        console.print("\n[bold]📚 Available Skills:[/bold]")
+        console.print("\n[bold] Available Skills:[/bold]")
         for skill_name, skill_data in agent.skill_manager.skills.items():
             metadata = skill_data['metadata']
             console.print(f"  • [cyan]{metadata.name}[/cyan]: {metadata.description}")
