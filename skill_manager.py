@@ -43,7 +43,7 @@ class SkillManager:
     
     def discover_skills(self) -> None:
         """Discover all skills in the skills directory"""
-        print(f"🔍 Discovering skills in {self.skills_dir}...")
+        print(f"Discovering skills in {self.skills_dir}...")
         
         for skill_dir in self.skills_dir.iterdir():
             if skill_dir.is_dir():
@@ -53,9 +53,9 @@ class SkillManager:
                         skill_data = self.load_skill(skill_file)
                         if skill_data:
                             self.skills[skill_data['metadata'].name] = skill_data
-                            print(f"  ✓ Loaded skill: {skill_data['metadata'].name}")
+                            print(f"  Loaded skill: {skill_data['metadata'].name}")
                     except Exception as e:
-                        print(f"  ✗ Error loading skill {skill_dir.name}: {e}")
+                        print(f"  Error loading skill {skill_dir.name}: {e}")
     
     def load_skill(self, skill_file: Path) -> Optional[Dict[str, Any]]:
         """
@@ -221,7 +221,7 @@ RESULT:"""
         context = initial_context.copy()
         
         for i, skill_name in enumerate(workflow):
-            print(f"🚀 Executing step {i+1}/{len(workflow)}: {skill_name}")
+            print(f" Executing step {i+1}/{len(workflow)}: {skill_name}")
             
             result = self.activate_skill(skill_name, context)
             
@@ -268,5 +268,5 @@ Any technical details or requirements.
 if __name__ == "__main__":
     # Test the skill manager
     manager = SkillManager()
-    print(f"\n📋 Available skills: {list(manager.skills.keys())}")
-    print(f"\n📄 Skills XML:\n{manager.get_available_skills_xml()}")
+    print(f"\n Available skills: {list(manager.skills.keys())}")
+    print(f"\n Skills XML:\n{manager.get_available_skills_xml()}")
